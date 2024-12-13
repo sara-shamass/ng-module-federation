@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "about/Routes": ["apps/about/src/app/remote-entry/entry.routes.ts"],
+      "cart/Routes": ["apps/cart/src/app/remote-entry/entry.routes.ts"],
+      "main_app/Routes": ["apps/main-app/src/app/remote-entry/entry.routes.ts"],
+      "shop/Routes": ["apps/shop/src/app/remote-entry/entry.routes.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

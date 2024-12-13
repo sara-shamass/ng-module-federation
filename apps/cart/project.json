@@ -1,31 +1,31 @@
 {
-  "name": "main-app",
+  "name": "cart",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/main-app/src",
+  "sourceRoot": "apps/cart/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/main-app",
-        "index": "apps/main-app/src/index.html",
-        "main": "apps/main-app/src/main.ts",
+        "outputPath": "dist/apps/cart",
+        "index": "apps/cart/src/index.html",
+        "main": "apps/cart/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/main-app/tsconfig.app.json",
+        "tsConfig": "apps/cart/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/main-app/public"
+            "input": "apps/cart/public"
           }
         ],
-        "styles": ["apps/main-app/src/styles.scss"],
+        "styles": ["apps/cart/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/main-app/webpack.config.ts"
+          "path": "apps/cart/webpack.config.ts"
         }
       },
       "configurations": {
@@ -44,7 +44,7 @@
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "apps/main-app/webpack.prod.config.ts"
+            "path": "apps/cart/webpack.prod.config.ts"
           }
         },
         "development": {
@@ -62,10 +62,10 @@
       "executor": "@nx/angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "main-app:build:production"
+          "buildTarget": "cart:build:production"
         },
         "development": {
-          "buildTarget": "main-app:build:development"
+          "buildTarget": "cart:build:development"
         }
       },
       "defaultConfiguration": "development",
@@ -76,32 +76,25 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "main-app:build"
+        "buildTarget": "cart:build"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
     },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": {
-        "jestConfig": "apps/main-app/jest.config.ts"
-      }
-    },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "defaultConfiguration": "production",
       "options": {
-        "buildTarget": "main-app:build",
+        "buildTarget": "cart:build",
         "watch": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "main-app:build:development"
+          "buildTarget": "cart:build:development"
         },
         "production": {
-          "buildTarget": "main-app:build:production"
+          "buildTarget": "cart:build:production"
         }
       }
     }
